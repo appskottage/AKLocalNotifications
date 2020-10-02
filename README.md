@@ -11,9 +11,9 @@ Notification that repeats from one Date to another with a time interval period
 // The date you would like the notification to fire at
 let triggerDate = Date().addingTimeInterval(300)
 
-let firstNotification = DLNotification(identifier: "firstNotification", alertTitle: "Notification Alert", alertBody: "You have successfully created a notification", date: triggerDate, repeats: .none)
+let firstNotification = AKNotification(identifier: "firstNotification", alertTitle: "Notification Alert", alertBody: "You have successfully created a notification", date: triggerDate, repeats: .none)
 
-let scheduler = DLNotificationScheduler()
+let scheduler = AkNotificationScheduler()
 scheduler.scheduleNotification(notification: firstNotification)
 scheduler.scheduleAllNotifications()
 ```
@@ -24,9 +24,9 @@ The configuration of the repetition is chosen in the repeats parameter that can 
 
 ```swift
 
-let firstNotification = DLNotification(identifier: "firstNotification", alertTitle: "Notification Alert", alertBody: "You have successfully created a notification", date: Date(), repeats: .minute)
+let firstNotification = AKNotification(identifier: "firstNotification", alertTitle: "Notification Alert", alertBody: "You have successfully created a notification", date: Date(), repeats: .minute)
 
-let scheduler = DLNotificationScheduler()
+let scheduler = AKNotificationScheduler()
 scheduler.scheduleNotification(notification: firstNotification)
 scheduler.scheduleAllNotifications()
 ```
@@ -36,7 +36,7 @@ scheduler.scheduleAllNotifications()
 This is useful to setup notifications to repeat every specific time interval for in a specific time period of the day.
 ```swift
 
-let scheduler = DLNotificationScheduler()
+let scheduler = AKNotificationScheduler()
 
 // This notification repeats every 15 seconds from a time period starting from 15 seconds from the current time till 5 minutes from the current time
 
@@ -54,7 +54,7 @@ repeatInterval, alertBody, alertTitle, soundName, fireDate, attachments, launchI
 
 ```swift
 
-let firstNotification = DLNotification(identifier: "firstNotification", alertTitle: "Notification Alert", alertBody: "You have successfully created a notification", date: Date(), repeats: .minute)
+let firstNotification = AKNotification(identifier: "firstNotification", alertTitle: "Notification Alert", alertBody: "You have successfully created a notification", date: Date(), repeats: .minute)
 
 // You can now change the repeat interval here
 firstNotification.repeatInterval = .yearly
@@ -62,7 +62,7 @@ firstNotification.repeatInterval = .yearly
 // You can add a launch image name
 firstNotification.launchImageName = "Hello.png"
 
-let scheduler = DLNotificationScheduler()
+let scheduler = AKNotificationScheduler()
 scheduler.scheduleNotification(notification: firstNotification)
 scheduler.scheduleAllNotifications()
 ```
@@ -77,9 +77,9 @@ let region = CLCircularRegion(center: center, radius: 2000.0, identifier: "Headq
 region.notifyOnEntry = true
 region.notifyOnExit = false
 
-let locationNotification = DLNotification(identifier: "LocationNotification", alertTitle: "Notification Alert", alertBody: "You have reached work", region: region )
+let locationNotification = AKNotification(identifier: "LocationNotification", alertTitle: "Notification Alert", alertBody: "You have reached work", region: region )
 
-let scheduler = DLNotificationScheduler()
+let scheduler = AKNotificationScheduler()
 scheduler.scheduleNotification(notification: locationNotification)
 scheduler.scheduleAllNotifications()
 ```
@@ -88,9 +88,9 @@ scheduler.scheduleAllNotifications()
 
 ```swift
 
- let scheduler = DLNotificationScheduler()
+ let scheduler = AKNotificationScheduler()
         
- let standingCategory = DLCategory(categoryIdentifier: "standingReminder")
+ let standingCategory = AKCategory(categoryIdentifier: "standingReminder")
         
  standingCategory.addActionButton(identifier: "willStand", title: "Ok, got it")
  standingCategory.addActionButton(identifier: "willNotStand", title: "Cannot")
